@@ -76,7 +76,7 @@ img {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 2000px; /* 100% isn't working?? I don't understand css */
+    height: 100%; /* 100% isn't working?? I don't understand css */
 
 }
 
@@ -160,8 +160,10 @@ u3 {
 .right-align-2 {
     display: flex;
     justify-content: flex-end;
-    width: 50%;
+    width: 25%;
+    height: 247px;
     flex-grow: 4;
+    margin: 0px;
 }
 
 .book-img {
@@ -170,6 +172,16 @@ u3 {
     margin: 0px;
 }
 
-img2 {
-    margin: 10px 0px;
+#img2 {
+    margin: 20px 120px;
+    border-radius: 0%;
+}
+
+#img3 {
+    margin: 20px -60px;
+}
+
+.edit-text {
+    text-align: right;
+    margin: 50px 20px;
 }
