@@ -1,0 +1,164 @@
+html, body{
+    padding:0;
+    margin:0 auto;
+    width: 1440;
+    font-family: roboto, sans-serif;
+    font-size: 25px;
+    background-color: #f2f0e3;
+    color:white;
+}
+
+#nav-bar{
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 64px;
+    background: #104270;
+}
+
+#left-side{
+    display: flex;
+    width: 30vw;
+    height: 64px;
+    border: none;
+    margin-top: 20px;
+}
+
+#menu{
+    border:none;
+    background-color: #104270;
+    color: white;
+    width: 30px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+span{
+    margin-left: 15px;
+    font-size: 25px;
+}
+
+#search-bar{
+    display: flex;
+    width:40vw;
+    height:30px;
+    min-width: 300px;
+    background-color: #8098ad;
+    margin-top: 15px;
+}
+
+#glass{
+    width:5%;
+    margin: 3px;
+}
+
+#search{
+    width: 90%;
+    border:none;
+    background-color: #8098ad;
+    color: #FFFFFF;
+}
+
+*:focus{
+    outline:none;
+}
+
+#filter{
+    border:none;
+    background-color:#8098ad;
+    color:white;
+    width: 5%;
+    margin: 3px;
+}
+
+#right-side{
+    width: 30vw;
+    display:flex;
+}
+
+#blankspace{
+    width:57%;
+    height:100%;
+}
+
+#circle{
+    width:30px;
+    height:30px;
+    min-width:30px;
+    min-height:30px;
+    border-radius: 50%;
+    border:none;
+    background-color:white;
+    margin-top:16px;
+}
+
+#sign-out{
+    min-width:100px;
+    margin-top:12px;
+    margin-left:2%;
+    background-color: #712900;
+}
+
+#more{
+    border: none;
+    background-color: #104270;
+    color: white;
+    width: 1px;
+    min-width:1px;
+    height:5px;
+    margin-top: 18px;
+    margin-left:0%;
+}
+
+#bottom{
+    width:100vw;
+    height:100vh;
+    display:flex;
+}
+
+#post-area{
+    margin-top: 64px;
+    width:72%;
+}
+
+.post{
+    margin-left:40%;
+    width:60%;
+    min-width:400px;
+    height:200px;
+    background-color:#9eb2ba;
+    margin-top:25px;
+    display: flex;
+}
+
+.Left{
+    width: 80%;
+}
+
+.Information{
+    margin: 5px 5px;
+    font-size: 24px;
+    height: 50%;
+}
+
+.Contact{
+    margin-left: 5px;
+    font-size: 16px;
+    height: 50%;
+}
+
+.picture{
+    background-color: black;
+    margin: 10px 10px 10px 10px;
+    width: 19%;
+    min-width: 100px;
+}
+
+#add-button{
+    background-color: #104270;
+    position: fixed;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    right: 0;
+    bottom: 0;
+}
