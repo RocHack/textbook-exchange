@@ -1,0 +1,157 @@
+html, body{
+  padding:0;
+  margin:0;
+  font-family: Arial;
+  font-size: 25px;
+  background-color: #f2f0e3;
+  color:white;
+}
+
+#left-side{
+  display: flex;
+  flex-grow: 3;
+}
+
+#right-side{
+  display: flex;
+  flex-grow: 3;
+  right: 0;
+}
+
+#menu{
+  border:none;
+  background-color: #104270;
+  color: white;
+  width: 30px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+span {
+  margin-left: 15px;
+  font-size: 25px;
+}
+
+#search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 2em;
+  min-width: 300px;
+  background-color: #8098ad;
+  border-radius: 3px;
+  flex-grow: 3;
+}
+
+input {
+  font-size: .8em;
+}
+
+#glass{
+  width:5%;
+  margin: 3px;
+}
+
+#search{
+  width: 90%;
+  border:none;
+  background-color: #8098ad;
+  color: #FFFFFF;
+}
+
+*:focus{
+outline:none;
+}
+
+#filter{
+  border:none;
+  background-color:#8098ad;
+  color:white;
+  width: 5%;
+  margin: 3px;
+}
+
+#blankspace{
+  width:57%;
+  height:100%;
+}
+
+#circle{
+  width:30px;
+  height:30px;
+  min-width:30px;
+  min-height:30px;
+  border-radius: 50%;
+  border:none;
+  background-color:white;
+}
+
+#sign-out{
+  min-width:100px;
+  background-color: #712900;
+}
+
+#more{
+  border: none;
+  background-color: #104270;
+  color: white;
+  width: 1px;
+  min-width:1px;
+  height:5px;
+  margin-top: 18px;
+  margin-left:0%;
+}
+
+#bottom{
+  width:100vw;
+  height:100vh;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#post-area{
+  margin-top: 64px;
+  width:72%;
+}
+
+.post{
+  width:60%;
+  min-width:400px;
+  height:200px;
+  background-color:#9eb2ba;
+  margin: 48px;
+  display: flex;
+}
+
+.left{
+  width: 80%;
+}
+
+.information{
+  margin: 5px 5px;
+  font-size: 24px;
+  height: 50%;
+}
+
+.contact{
+  margin-left: 5px;
+  font-size: 16px;
+  height: 50%;
+}
+
+.picture{
+  background-color: black;
+  margin: 10px 10px 10px 10px;
+  width: 19%;
+  min-width: 100px;
+}
+
+#add-button{
+  background-color: #104270;
+  position: fixed;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  right: 0;
+  bottom: 0;
+}

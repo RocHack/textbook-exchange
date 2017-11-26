@@ -1,0 +1,176 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  color: #FFFFFF;
+  overflow: hidden;
+  background: #EFEFEF;
+}
+
+.container {
+  width: 100%;
+}
+
+#navbar{
+  list-style-type: none;
+  height: 64px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #104270;
+}
+
+a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.left-align {
+  display: flex;
+  float: left;
+  width: 50%;
+  flex-grow: 4;
+}
+
+.right-align {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  flex-grow: 4;
+}
+
+.navhome {
+  font-size: 25px;
+  padding: 17px 27px;
+}
+
+.navlink {
+  padding: 0 16px;
+}
+
+/* button height extends down to the end of icon?? help */
+.button {
+  margin: 0 16px;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  background: #712900;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 3px;
+  transition: all ease-in-out .2s;
+}
+
+#prof {
+  margin: 10px 0px;
+  border-radius: 50%;
+}
+
+/* this doens't work */
+#scroll {
+  overflow: scroll;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+
+.user-stats {
+  position: fixed;
+  top: 72px;
+  right: 16px;
+  width: 350px;
+  height: 350px;
+  padding: 5px;
+  background-color: #003B71;
+  border-radius: 3px;
+}
+
+/* Adjust upper padding so there's more space */
+.title {
+  font-size: 35px;
+  font-weight: 450;
+  padding-left: 10px;
+}
+
+/* Gets rid of those bullet points */
+u1 {
+  list-style: none;
+  font-weight: 300;
+  font-size: 32px;
+}
+
+.stats {
+  padding:  0 30px;
+}
+
+b {
+  color: #393636;
+  text-decoration: none;
+}
+
+.title2 {
+  font-size: 35px;
+  margin: 16px 32px;
+}
+
+#posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.post {
+  width: 674px;
+  height: 231px;
+  margin: 8px 32px;
+  background-color: #9EB2BA;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.left-align-2 {
+  display: flex;
+  float: left;
+  width: 75%;
+  flex-grow: 4;
+}
+
+u2 {
+  list-style: none;
+  font-weight: 350;
+  font-size: 24px;
+}
+
+.book-info {
+  margin: 15px;
+  padding: 0;
+}
+
+u3 {
+  margin: 1px; /* not flexible?  */
+  list-style: none;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.right-align-2 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.book-img {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px;
+}
+
+.edit-text {
+  text-align: right;
+  margin: 50px 20px;
+}

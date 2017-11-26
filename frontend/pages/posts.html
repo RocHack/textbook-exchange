@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+
+    <title>Posts</title>
+    <meta name="description" content="UR Textbook Exchange - making college simple.">
+
+    <link rel="icon" href="/images/favicon.png">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- See https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="#003B71">
+
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="UR Textbook Exchange">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="UR Textbook Exchange">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileColor" content="#003B71">
+
+    <meta name="description" content="UR Textbook Exchange - making college simple.">
+    <meta name="keywords" content="Textbook, Exchange, College, UR, Rochester">
+    <meta name="authors" content="Duncan Grubbs">
+
+    <!-- Homescreen icons for IOS -->
+    <link rel="apple-touch-icon" href="/images/apple-manifest/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-manifest/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/images/apple-manifest/icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-manifest/icon-180x180.png">
+
+    <link rel="apple-touch-startup-image" href="/images/manifest/icon-144x144.png">
+
+    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/images/manifest/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#003B71">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="posts-style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </head>
+  
+  <body>
+    <div id="nav-bar">
+        <div id="left-side">
+            <div class="dropdownmenu">
+                <button class="material-icons button" id="menu">dehaze</button>
+            </div>
+            <span>UR Textbook Exchange</span>
+        </div>
+        <div id="search-bar">
+          <i class="material-icons" id="glass">search</i>
+          <input type="text" id="search" name="search" placeholder="Search">
+          <div class="dropdownfilter">
+              <button class="material-icons mdc-button__icon button" id="filter">filter_list</button>
+          </div>
+        </div>
+        <div id="right-side">
+          <a href="profile.html" id="circle"></a>
+          <a href="../index.html"></a>
+          <button class="mdl-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="sign-out">
+              Sign Out
+          </button>
+        </a>
+            <!-- <div class="dropdownmore">
+                <button class="material-icons button" id = "more">more_vert</button>  
+            </div> -->
+        </div>
+    </div>
+    <div id="bottom">
+      <div class="post">
+        <div class="left">
+          <div class="information">
+              <div>Title</div>
+              <div>Edition</div>
+              <div>Author</div>
+          </div>
+          <div class="contact">
+              <div>Condition</div>
+              <div>Phone number</div>
+              <div>Email</div>
+              <div>Price</div>
+          </div>
+        </div>
+        <div class="picture"></div>  
+      </div>
+    </div>
+    <!-- Colored FAB button -->
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" id="add-button">
+        <i class="material-icons">add</i>
+    </button>
+  </body>
+
+</html>
