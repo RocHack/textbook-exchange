@@ -1,11 +1,11 @@
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyBKgtR_IxRiNe7vcSCmXSt9kLJkPU_lGEE",
-    authDomain: "ur-book-a6b81.firebaseapp.com",
-    databaseURL: "https://ur-book-a6b81.firebaseio.com",
-    projectId: "ur-book-a6b81",
-    storageBucket: "ur-book-a6b81.appspot.com",
-    messagingSenderId: "83437624910"
+    apiKey: "Replace this with your own config",
+    authDomain: "Replace this with your own config",
+    databaseURL: "Replace this with your own config",
+    projectId: "Replace this with your own config",
+    storageBucket: "Replace this with your own config",
+    messagingSenderId: "Replace this with your own config"
 };
 firebase.initializeApp(config);
 var firestore = firebase.firestore();
