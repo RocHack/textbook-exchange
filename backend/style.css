@@ -1,0 +1,61 @@
+body {
+    font-family: "Roboto";
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+#name, #edition, #price, #condition, #subject, #course, #comment {
+    display: block;
+}
+
+#uname, #uedition, #uprice, #ucondition, #usubject, #ucourse, #ucomment {
+    display: block;
+}
+
+#input-form {
+    display: block;
+    align-items: center;
+    color: #4755b0;
+}
+
+#update-form {
+    display: none;
+    align-items: center;
+    color: #eebf3b;
+}
+
+#output-form {
+    display: block;
+    align-items: center;
+    text-align: center;
+    color: #4755b0;
+}
+
+#own-output-form {
+    display: block;
+    align-items: center;
+    text-align: center;
+    color: #4755b0;
+}
+
+/* Table */
+table {
+    border-collapse: collapse;
+    width: 75%
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+th {
+    background-color: #4755b0;
+    color: white;
+}
