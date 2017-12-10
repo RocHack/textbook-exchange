@@ -8,7 +8,7 @@
   <title>Posts</title>
   <meta name="description" content="UR Textbook Exchange - making college simple.">
 
-  <link rel="icon" href="images/favicon.png">
+  <link rel="icon" href="../images/favicon.png">
 
   <!-- See https://goo.gl/OOhYW5 -->
   <link rel="manifest" href="manifest.json">
@@ -33,37 +33,30 @@
   <meta name="authors" content="Duncan Grubbs">
 
   <!-- Homescreen icons for IOS -->
-  <link rel="apple-touch-icon" href="images/apple-manifest/icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="images/apple-manifest/icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="images/apple-manifest/icon-167x167.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-manifest/icon-180x180.png">
+  <link rel="apple-touch-icon" href="../images/apple-manifest/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../images/apple-manifest/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="../images/apple-manifest/icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-manifest/icon-180x180.png">
 
-  <link rel="apple-touch-startup-image" href="images/manifest/icon-144x144.png">
+  <link rel="apple-touch-startup-image" href="../images/manifest/icon-144x144.png">
 
   <!-- Tile icon for Windows 8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="images/manifest/icon-144x144.png">
+  <meta name="msapplication-TileImage" content="../images/manifest/icon-144x144.png">
   <meta name="msapplication-TileColor" content="#003B71">
   <meta name="msapplication-tap-highlight" content="no">
 
-  <!--Styles-->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-amber.min.css" />
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <!-- Styles -->
   <link rel="stylesheet" href="../style.css">
 
-  <!--Scripts-->
+  <!-- Scripts -->
+  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-firestore.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+  <!-- algolia -->
   <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-  <script src="app.js" defer></script>
-  <script defer src="../script.js"></script>
-  <script defer src="../app.js"></script>
+  <!-- local scripts -->
+  <script defer src="posts.js"></script>
 </head>
 
 <body>
@@ -72,129 +65,88 @@
       <div id="nav-title">UR Textbook Exchange</div>
     </div>
     <div class="center-align">
-      <input type="text" placeholder="Search" id="search">
+      <input id="searchField" type="text" placeholder="Search">
+      <button class="nav-link button" id="searchButton">Search</button>
     </div>
     <div class="right-align">
       <a href="profile.html">
         <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" id="prof-img">
       </a>
-      <a class="nav-link button" href="/../index.html">Sign Out</a>
+      <button class="nav-link button" id="signOut">Sign Out</button>
     </div>
   </div>
 
   <div id="bottom">
     <h1>Posts at UR</h1>
-    <table>
+    <table id="postsTable">
       <tr>
         <th>Book Name</th>
         <th>Edition</th>
+        <!-- th>ISBN</th -->
         <th>Condition</th>
         <th>Subject</th>
         <th>Course</th>
         <th>Price</th>
         <th>Comments</th>
       </tr>
+    </table>
+    <h1>Search Results</h1>
+    <table id="searchTable">
       <tr>
-        <td>Intro To Java</td>
-        <td>7th Edition</td>
-        <td>Good</td>
-        <td>Computer Science</td>
-        <td>CSC 171</td>
-        <td>$100</td>
-        <td>Some comment</td>
-      </tr>
-      <tr>
-        <td>Advanced Music Theory</td>
-        <td>3th Edition</td>
-        <td>Poor</td>
-        <td>Music</td>
-        <td>MUR 230</td>
-        <td>$56</td>
-        <td>Music!</td>
-      </tr>
-      <tr>
-        <td>Advanced Music Theory</td>
-        <td>3th Edition</td>
-        <td>Poor</td>
-        <td>Music</td>
-        <td>MUR 230</td>
-        <td>$56</td>
-        <td>Music!</td>
-      </tr>
-      <tr>
-        <td>Advanced Music Theory</td>
-        <td>3th Edition</td>
-        <td>Poor</td>
-        <td>Music</td>
-        <td>MUR 230</td>
-        <td>$56</td>
-        <td>Music!</td>
-      </tr>
-      <tr>
-        <td>Advanced Music Theory</td>
-        <td>3th Edition</td>
-        <td>Poor</td>
-        <td>Music</td>
-        <td>MUR 230</td>
-        <td>$56</td>
-        <td>Music!</td>
-      </tr>
-      <tr>
-        <td>Advanced Music Theory</td>
-        <td>3th Edition</td>
-        <td>Poor</td>
-        <td>Music</td>
-        <td>MUR 230</td>
-        <td>$56</td>
-        <td>Music!</td>
+        <th>Book Name</th>
+        <th>Edition</th>
+        <!-- th>ISBN</th -->
+        <th>Condition</th>
+        <th>Subject</th>
+        <th>Course</th>
+        <th>Price</th>
+        <th>Comments</th>
       </tr>
     </table>
     <div id="add-post">
       <div id="inputs">
-        <!-- Title: <input id="titleField" class="property-input" type="text" name="" value="">
-            Price: <input id="priceField" step="5" class="property-input" type="number" name="" value="">
-            Quantity: <input id="quantityField" class="property-input" type="number" name="" value="">
-            Edition: <input id="editionField" class="property-input" type="text" name="" value="">
-            Department: <input id="departmentField" class="property-input" type="text" name="" value="">
-            Class: <input id="classField" class="property-input" type="text" name="" value="">
-            ISBN: <input id="priceField" class="property-input" type="number" name="" value="">
-            Comments: <input id="priceField" class="property-input" type="text" name="" value="">
-            <button class="button" id="post-button">Submit</button -->
-        <div id="name" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-          <input class="mdl-textfield__input" type="text" id="nameField" name="nameField">
-          <label class="mdl-textfield__label" for="nameField">Name of the book...</label>
-        </div>
-
-        <div id="edition" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-          <input class="mdl-textfield__input" type="number" id="editionField" name="editionField">
-          <label class="mdl-textfield__label" for="editionField">Edition...</label>
-        </div>
-
-        <div id="condition" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-          <input class="mdl-textfield__input" type="text" id="conditionField" name="conditionField">
-          <label class="mdl-textfield__label" for="conditionField">Condition of the book...</label>
-        </div>
-
-        <div id="subject" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-          <input class="mdl-textfield__input" type="text" id="subjectField" name="subjectField">
-          <label class="mdl-textfield__label" for="subjectField">Subject...</label>
-        </div>
-
-        <div id="course" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-          <input class="mdl-textfield__input" type="text" id="courseField" name="courseField">
-          <label class="mdl-textfield__label" for="courseField">Course...</label>
-        </div>
-
-        <div id="price" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-          <input class="mdl-textfield__input" type="number" id="priceField" name="priceField">
-          <label class="mdl-textfield__label" for="priceField">Price...</label>
-        </div>
-
-        <div id="comment" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
-          <textarea id="commentField" name="commentField" class="mdl-textfield__input" type="text" rows="5" maxrows="10"></textarea>
-          <label class="mdl-textfield__label" for="commentField">Comments...</label>
-        </div>
-        <button id="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-cell--12-col">Submit</button>
+        Book Name:
+        <input id="nameField" class="property-input" type="text" name="" value="">
+        Edition:
+        <select id="editionField" class="property-input" type="number" name="" value="">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <!-- ISBN:
+        <input id="isbnField" class="property-input" type="number" name="" value=""> -->
+        Condition:
+        <select id="conditionField" class="property-input" type="text" name="" value="">
+          <option value="New">New</option>
+          <option value="Good">Good</option>
+          <option value="Medium">Medium</option>
+          <option value="Bad">Bad</option>
+        </select>
+        Subject:
+        <select id="subjectField" class="property-input" type="text" name="" value="">
+          <option value="CSC">CSC</option>
+          <option value="MTH">MTH</option>
+          <option value="ECE">ECE</option>
+          <option value="MUR">MUR</option>
+          <option value="PSY">PSY</option>
+          <option value="ME">ME</option>
+          <option value="BME">BME</option>
+          <option value="PHY">PHY</option>
+          <option value="CHM">CHM</option>
+        </select>
+        Course:
+        <input id="courseField" class="property-input" type="text" name="" value="">
+        Price:
+        <input id="priceField" step="5" class="property-input" type="number" name="" value="">
+        Comments:
+        <textarea id="commentField" rows="5" maxrows="10" class="property-input" type="text" name="" value=""></textarea>
+        <button class="button" id="submitButton">Submit</button>
       </div>
     </div>
   </div>

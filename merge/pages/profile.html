@@ -1,123 +1,140 @@
 <!doctype html>
 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
 
-    <title>Profile</title>
-    <meta name="description" content="UR Textbook Exchange - making college simple.">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
 
-    <link rel="icon" href="/images/favicon.png">
+  <title>Profile</title>
+  <meta name="description" content="UR Textbook Exchange - making college simple.">
 
-    <!-- See https://goo.gl/OOhYW5 -->
-    <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="../images/favicon.png">
 
-    <!-- See https://goo.gl/qRE0vM -->
-    <meta name="theme-color" content="#003B71">
+  <!-- See https://goo.gl/OOhYW5 -->
+  <link rel="manifest" href="manifest.json">
 
-    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="UR Textbook Exchange">
+  <!-- See https://goo.gl/qRE0vM -->
+  <meta name="theme-color" content="#003B71">
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="UR Textbook Exchange">
+  <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="UR Textbook Exchange">
 
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileColor" content="#003B71">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="UR Textbook Exchange">
 
-    <meta name="description" content="UR Textbook Exchange - making college simple.">
-    <meta name="keywords" content="Textbook, Exchange, College, UR, Rochester">
-    <meta name="authors" content="Duncan Grubbs">
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileColor" content="#003B71">
 
-    <!-- Homescreen icons for IOS -->
-    <link rel="apple-touch-icon" href="/images/apple-manifest/icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-manifest/icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="/images/apple-manifest/icon-167x167.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-manifest/icon-180x180.png">
+  <meta name="description" content="UR Textbook Exchange - making college simple.">
+  <meta name="keywords" content="Textbook, Exchange, College, UR, Rochester">
+  <meta name="authors" content="Duncan Grubbs">
 
-    <link rel="apple-touch-startup-image" href="/images/manifest/icon-144x144.png">
+  <!-- Homescreen icons for IOS -->
+  <link rel="apple-touch-icon" href="../images/apple-manifest/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../images/apple-manifest/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="../images/apple-manifest/icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-manifest/icon-180x180.png">
 
-    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="/images/manifest/icon-144x144.png">
-    <meta name="msapplication-TileColor" content="#003B71">
-    <meta name="msapplication-tap-highlight" content="no">
-    <!-- <link rel="stylesheet" href="profile-style.css"> -->
-    <link rel="stylesheet" href="../style.css">
-  </head>
+  <link rel="apple-touch-startup-image" href="../images/manifest/icon-144x144.png">
 
-  <body>
-    <div id="nav-bar">
-      <div class="left-align">
-        <div id="nav-title">UR Textbook Exchange</div>
-      </div>
-      <div class="right-align">
-        <a class="nav-link button" href="/../index.html">Sign Out</a>
+  <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="../images/manifest/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#003B71">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Styles -->
+  <!-- <link rel="stylesheet" href="profile-style.css"> -->
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Scripts -->
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-firestore.js"></script>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- algolia -->
+  <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+  <!-- local scripts -->
+  <script defer src="profile.js"></script>
+</head>
+
+<body>
+  <div id="nav-bar">
+    <div class="left-align">
+      <div id="nav-title">UR Textbook Exchange</div>
+    </div>
+    <div class="right-align">
+      <button class="nav-link button" id="signOut">Sign Out</button>
+    </div>
+  </div>
+
+  <div id="bottom">
+    <a class="button" href="posts.html">Back</a>
+    <h1>UR Posts</h1>
+    <table id="ownPostsTable">
+      <tr>
+        <th>Book Name</th>
+        <th>Edition</th>
+        <!-- th>ISBN</th -->
+        <th>Condition</th>
+        <th>Subject</th>
+        <th>Course</th>
+        <th>Price</th>
+        <th>Comments</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </table>
+
+    <div id="add-post">
+      <div id="inputs">
+        Book Name:
+        <input id="nameField" class="property-input" type="text" name="" value=""> Edition:
+        <select id="editionField" class="property-input" type="number" name="" value="">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <!-- ISBN:
+          <input id="isbnField" class="property-input" type="number" name="" value=""> -->
+        Condition:
+        <select id="conditionField" class="property-input" type="text" name="" value="">
+          <option value="New">New</option>
+          <option value="Good">Good</option>
+          <option value="Medium">Medium</option>
+          <option value="Bad">Bad</option>
+        </select>
+        Subject:
+        <select id="subjectField" class="property-input" type="text" name="" value="">
+          <option value="CSC">CSC</option>
+          <option value="MTH">MTH</option>
+          <option value="ECE">ECE</option>
+          <option value="MUR">MUR</option>
+          <option value="PSY">PSY</option>
+          <option value="ME">ME</option>
+          <option value="BME">BME</option>
+          <option value="PHY">PHY</option>
+          <option value="CHM">CHM</option>
+        </select>
+        Course:
+        <input id="courseField" class="property-input" type="text" name="" value=""> Price:
+        <input id="priceField" step="5" class="property-input" type="number" name="" value=""> Comments:
+        <textarea id="commentField" rows="5" maxrows="10" class="property-input" type="text" name="" value=""></textarea>
+        <button class="button" id="updateButton">Update</button>
       </div>
     </div>
-    
-    <div id="bottom">
-      <a class="button" href="/pages/posts.html">Back</a>
-      <h1>UR Posts</h1>
-      <table>
-        <tr>
-          <th>Book Name</th>
-          <th>Edition</th>
-          <th>Condition</th>
-          <th>Subject</th>
-          <th>Course</th>
-          <th>Price</th>
-          <th>Comments</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-        <tr>
-          <td>Intro To Java</td>
-          <td>7th Edition</td>
-          <td>Good</td>
-          <td>Computer Science</td>
-          <td>CSC 171</td>
-          <td>$100</td>
-          <td>Some comment</td>
-          <td><div id="edit-button" class="button mod-button">Edit</div></td>
-          <td><div id="delete-button" class="button mod-button">Delete</div></td>
-        </tr>
-        <tr>
-          <td>Advanced Music Theory</td>
-          <td>3th Edition</td>
-          <td>Poor</td>
-          <td>Music</td>
-          <td>MUR 230</td>
-          <td>$56</td>
-          <td>Music!</td>
-          <td><div id="edit-button" class="button mod-button">Edit</div></td>
-          <td><div id="delete-button" class="button mod-button">Delete</div></td>
-        </tr>
-        <tr>
-          <td>Advanced Music Theory</td>
-          <td>3th Edition</td>
-          <td>Poor</td>
-          <td>Music</td>
-          <td>MUR 230</td>
-          <td>$56</td>
-          <td>Music!</td>
-          <td><div id="edit-button" class="button mod-button">Edit</div></td>
-          <td><div id="delete-button" class="button mod-button">Delete</div></td>
-        </tr>
-        <tr>
-          <td>Advanced Music Theory</td>
-          <td>3th Edition</td>
-          <td>Poor</td>
-          <td>Music</td>
-          <td>MUR 230</td>
-          <td>$56</td>
-          <td>Music!</td>
-          <td><div id="edit-button" class="button mod-button">Edit</div></td>
-          <td><div id="delete-button" class="button mod-button">Delete</div></td>
-        </tr>
-      </table>
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>
