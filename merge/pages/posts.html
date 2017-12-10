@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+
+    <title>Posts</title>
+    <meta name="description" content="UR Textbook Exchange - making college simple.">
+
+    <link rel="icon" href="/images/favicon.png">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- See https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="#003B71">
+
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="UR Textbook Exchange">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="UR Textbook Exchange">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileColor" content="#003B71">
+
+    <meta name="description" content="UR Textbook Exchange - making college simple.">
+    <meta name="keywords" content="Textbook, Exchange, College, UR, Rochester">
+    <meta name="authors" content="Duncan Grubbs">
+
+    <!-- Homescreen icons for IOS -->
+    <link rel="apple-touch-icon" href="/images/apple-manifest/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-manifest/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/images/apple-manifest/icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-manifest/icon-180x180.png">
+
+    <link rel="apple-touch-startup-image" href="/images/manifest/icon-144x144.png">
+
+    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/images/manifest/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#003B71">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="../style.css">
+    <script defer src="../script.js"></script>
+  </head>
+  
+  <body>
+    <div id="nav-bar">
+      <div class="left-align">
+        <div id="nav-title">UR Textbook Exchange</div>
+      </div>
+      <div class="center-align">
+          <input type="text" placeholder="Search" id="search">
+        </div>
+      <div class="right-align">
+        <a href="/pages/profile.html">
+          <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" id="prof-img">
+        </a>
+        <a class="nav-link button" href="/../index.html">Sign Out</a>
+      </div>
+    </div>
+
+    <div id="bottom">
+      <h1>Posts at UR</h1>
+      <table>
+        <tr>
+          <th>Book Name</th>
+          <th>Edition</th>
+          <th>Condition</th>
+          <th>Subject</th>
+          <th>Course</th>
+          <th>Price</th>
+          <th>Comments</th>
+        </tr>
+        <tr>
+          <td>Intro To Java</td>
+          <td>7th Edition</td>
+          <td>Good</td>
+          <td>Computer Science</td>
+          <td>CSC 171</td>
+          <td>$100</td>
+          <td>Some comment</td>
+        </tr>
+        <tr>
+          <td>Advanced Music Theory</td>
+          <td>3th Edition</td>
+          <td>Poor</td>
+          <td>Music</td>
+          <td>MUR 230</td>
+          <td>$56</td>
+          <td>Music!</td>
+        </tr>
+        <tr>
+          <td>Advanced Music Theory</td>
+          <td>3th Edition</td>
+          <td>Poor</td>
+          <td>Music</td>
+          <td>MUR 230</td>
+          <td>$56</td>
+          <td>Music!</td>
+        </tr>
+        <tr>
+          <td>Advanced Music Theory</td>
+          <td>3th Edition</td>
+          <td>Poor</td>
+          <td>Music</td>
+          <td>MUR 230</td>
+          <td>$56</td>
+          <td>Music!</td>
+        </tr>
+        <tr>
+          <td>Advanced Music Theory</td>
+          <td>3th Edition</td>
+          <td>Poor</td>
+          <td>Music</td>
+          <td>MUR 230</td>
+          <td>$56</td>
+          <td>Music!</td>
+        </tr>
+        <tr>
+          <td>Advanced Music Theory</td>
+          <td>3th Edition</td>
+          <td>Poor</td>
+          <td>Music</td>
+          <td>MUR 230</td>
+          <td>$56</td>
+          <td>Music!</td>
+        </tr>
+      </table>
+      <div id="add-post">
+          <div id="inputs">
+            Title: <input class="property-input" type="text" name="" value="">
+            Price: <input step="5" class="property-input" type="number" name="" value="">
+            Quantity: <input class="property-input" type="number" name="" value="">
+            Edition: <input class="property-input" type="text" name="" value="">
+            Department: <input class="property-input" type="text" name="" value="">
+            Class: <input class="property-input" type="text" name="" value="">
+            ISBN: <input class="property-input" type="number" name="" value="">
+            Comments: <input class="property-input" type="text" name="" value="">
+            <button class="button" id="post-button">Submit</button>
+          </div>
+      </div>
+    </div>
+    
+    <!-- Colored FAB button -->
+    <div id="add-button">+</div>
+  </body>
+
+</html>
