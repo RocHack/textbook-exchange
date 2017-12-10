@@ -56,7 +56,9 @@
           <input type="text" placeholder="Search" id="search">
         </div>
       <div class="right-align">
-        <!-- <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" id="prof-img"> -->
+        <a href="/pages/profile.html">
+          <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" id="prof-img">
+        </a>
         <a class="nav-link button" href="/../index.html">Sign Out</a>
       </div>
     </div>
@@ -129,24 +131,17 @@
         </tr>
       </table>
       <div id="add-post">
-          <form>
-            Textbook Title: <input type="text" name="" value="">
-            <br><br>
-            Price: <input type="number" name="" value="">
-            <br><br>
-            Quantity: <input type="number" name="" value="">
-            <br><br>
-            Edition: <input type="text" name="" value="">
-            <br><br>
-            Department: <input type="text" name="" value="">
-            <br><br>
-            Class: <input type="text" name="" value="">
-            <br><br>
-            ISBN: <input type="number" name="" value="">
-            <br><br>
-            Comments: <input type="text" name="" value="">
-            <button>Submit</button>
-          </form>
+          <div id="inputs">
+            Title: <input class="property-input" type="text" name="" value="">
+            Price: <input step="5" class="property-input" type="number" name="" value="">
+            Quantity: <input class="property-input" type="number" name="" value="">
+            Edition: <input class="property-input" type="text" name="" value="">
+            Department: <input class="property-input" type="text" name="" value="">
+            Class: <input class="property-input" type="text" name="" value="">
+            ISBN: <input class="property-input" type="number" name="" value="">
+            Comments: <input class="property-input" type="text" name="" value="">
+            <button class="button" id="post-button">Submit</button>
+          </div>
       </div>
     </div>
     
