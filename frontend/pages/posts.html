@@ -43,62 +43,115 @@
     <meta name="msapplication-TileImage" content="/images/manifest/icon-144x144.png">
     <meta name="msapplication-TileColor" content="#003B71">
     <meta name="msapplication-tap-highlight" content="no">
-    <link rel="stylesheet" href="../shared-styles.css">
-    <link rel="stylesheet" href="posts-style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script defer src="../script.js"></script>
   </head>
   
   <body>
     <div id="nav-bar">
-        <div id="left-side">
-            <div class="dropdownmenu">
-                <button class="material-icons button" id="menu">dehaze</button>
-            </div>
-            <span>UR Textbook Exchange</span>
+      <div class="left-align">
+        <div id="nav-title">UR Textbook Exchange</div>
+      </div>
+      <div class="center-align">
+          <input type="text" placeholder="Search" id="search">
         </div>
-        <div id="search-bar">
-          <i class="material-icons" id="glass">search</i>
-          <input type="text" id="search" name="search" placeholder="Search">
-          <div class="dropdownfilter">
-              <button class="material-icons mdc-button__icon button" id="filter">filter_list</button>
-          </div>
-        </div>
-        <div id="right-side">
-          <a href="profile.html" id="circle"></a>
-          <a href="../index.html"></a>
-          <button class="mdl-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="sign-out">
-              Sign Out
-          </button>
-        </a>
-            <!-- <div class="dropdownmore">
-                <button class="material-icons button" id = "more">more_vert</button>  
-            </div> -->
-        </div>
-    </div>
-    <div id="bottom">
-      <div class="post">
-        <div class="left">
-          <div class="information">
-              <div>Title</div>
-              <div>Edition</div>
-              <div>Author</div>
-          </div>
-          <div class="contact">
-              <div>Condition</div>
-              <div>Phone number</div>
-              <div>Email</div>
-              <div>Price</div>
-          </div>
-        </div>
-        <div class="picture"></div>  
+      <div class="right-align">
+        <!-- <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" id="prof-img"> -->
+        <a class="nav-link button" href="/../index.html">Sign Out</a>
       </div>
     </div>
+
+    <div id="bottom">
+      <h1>Posts at UR</h1>
+      <table>
+        <tr>
+          <th>Book Name</th>
+          <th>Edition</th>
+          <th>Condition</th>
+          <th>Subject</th>
+          <th>Course</th>
+          <th>Price</th>
+          <th>Comments</th>
+        </tr>
+        <tr>
+          <td>Intro To Java</td>
+          <td>7th Edition</td>
+          <td>Good</td>
+          <td>Computer Science</td>
+          <td>CSC 171</td>
+          <td>$100</td>
+          <td>Some comment</td>
+        </tr>
+        <tr>
+          <td>Advanced Music Theory</td>
+          <td>3th Edition</td>
+          <td>Poor</td>
+          <td>Music</td>
+          <td>MUR 230</td>
+          <td>$56</td>
+          <td>Music!</td>
+        </tr>
+        <tr>
+          <td>Advanced Music Theory</td>
+          <td>3th Edition</td>
+          <td>Poor</td>
+          <td>Music</td>
+          <td>MUR 230</td>
+          <td>$56</td>
+          <td>Music!</td>
+        </tr>
+        <tr>
+          <td>Advanced Music Theory</td>
+          <td>3th Edition</td>
+          <td>Poor</td>
+          <td>Music</td>
+          <td>MUR 230</td>
+          <td>$56</td>
+          <td>Music!</td>
+        </tr>
+        <tr>
+          <td>Advanced Music Theory</td>
+          <td>3th Edition</td>
+          <td>Poor</td>
+          <td>Music</td>
+          <td>MUR 230</td>
+          <td>$56</td>
+          <td>Music!</td>
+        </tr>
+        <tr>
+          <td>Advanced Music Theory</td>
+          <td>3th Edition</td>
+          <td>Poor</td>
+          <td>Music</td>
+          <td>MUR 230</td>
+          <td>$56</td>
+          <td>Music!</td>
+        </tr>
+      </table>
+      <div id="add-post">
+          <form>
+            Textbook Title: <input type="text" name="" value="">
+            <br><br>
+            Price: <input type="number" name="" value="">
+            <br><br>
+            Quantity: <input type="number" name="" value="">
+            <br><br>
+            Edition: <input type="text" name="" value="">
+            <br><br>
+            Department: <input type="text" name="" value="">
+            <br><br>
+            Class: <input type="text" name="" value="">
+            <br><br>
+            ISBN: <input type="number" name="" value="">
+            <br><br>
+            Comments: <input type="text" name="" value="">
+            <button>Submit</button>
+          </form>
+      </div>
+    </div>
+    
     <!-- Colored FAB button -->
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" id="add-button">
-        <i class="material-icons">add</i>
-    </button>
+    <div id="add-button">+</div>
   </body>
 
 </html>
