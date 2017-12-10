@@ -150,9 +150,10 @@ $(document).on("click", ".delete", function (e) {
     var docRef = firestore.collection("books").doc(e.target.id);
 
     docRef.get().then(function (doc) {
-        if (doc.exists && doc.data().OwnerID == user.uid) {
+        if (doc.exists && doc.data().OwnerID == firebase.auth().currentUser.uid) {
             docRef.delete().then(function () {
                 console.log("Document successfully deleted!");
+                window.alert("Book deleted!");
                 window.location.reload();
             }).catch(function (error) {
                 console.error("Error removing document: ", error);
