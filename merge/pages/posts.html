@@ -1,152 +1,206 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
 
-    <title>Posts</title>
-    <meta name="description" content="UR Textbook Exchange - making college simple.">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
 
-    <link rel="icon" href="/images/favicon.png">
+  <title>Posts</title>
+  <meta name="description" content="UR Textbook Exchange - making college simple.">
 
-    <!-- See https://goo.gl/OOhYW5 -->
-    <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="images/favicon.png">
 
-    <!-- See https://goo.gl/qRE0vM -->
-    <meta name="theme-color" content="#003B71">
+  <!-- See https://goo.gl/OOhYW5 -->
+  <link rel="manifest" href="manifest.json">
 
-    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="UR Textbook Exchange">
+  <!-- See https://goo.gl/qRE0vM -->
+  <meta name="theme-color" content="#003B71">
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="UR Textbook Exchange">
+  <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="UR Textbook Exchange">
 
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileColor" content="#003B71">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="UR Textbook Exchange">
 
-    <meta name="description" content="UR Textbook Exchange - making college simple.">
-    <meta name="keywords" content="Textbook, Exchange, College, UR, Rochester">
-    <meta name="authors" content="Duncan Grubbs">
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileColor" content="#003B71">
 
-    <!-- Homescreen icons for IOS -->
-    <link rel="apple-touch-icon" href="/images/apple-manifest/icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-manifest/icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="/images/apple-manifest/icon-167x167.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-manifest/icon-180x180.png">
+  <meta name="description" content="UR Textbook Exchange - making college simple.">
+  <meta name="keywords" content="Textbook, Exchange, College, UR, Rochester">
+  <meta name="authors" content="Duncan Grubbs">
 
-    <link rel="apple-touch-startup-image" href="/images/manifest/icon-144x144.png">
+  <!-- Homescreen icons for IOS -->
+  <link rel="apple-touch-icon" href="images/apple-manifest/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/apple-manifest/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="images/apple-manifest/icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-manifest/icon-180x180.png">
 
-    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="/images/manifest/icon-144x144.png">
-    <meta name="msapplication-TileColor" content="#003B71">
-    <meta name="msapplication-tap-highlight" content="no">
-    <link rel="stylesheet" href="../style.css">
-    <script defer src="../script.js"></script>
-  </head>
-  
-  <body>
-    <div id="nav-bar">
-      <div class="left-align">
-        <div id="nav-title">UR Textbook Exchange</div>
-      </div>
-      <div class="center-align">
-          <input type="text" placeholder="Search" id="search">
+  <link rel="apple-touch-startup-image" href="images/manifest/icon-144x144.png">
+
+  <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/manifest/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#003B71">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!--Styles-->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-amber.min.css" />
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <link rel="stylesheet" href="../style.css">
+
+  <!--Scripts-->
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-firestore.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+  <script src="app.js" defer></script>
+  <script defer src="../script.js"></script>
+  <script defer src="../app.js"></script>
+</head>
+
+<body>
+  <div id="nav-bar">
+    <div class="left-align">
+      <div id="nav-title">UR Textbook Exchange</div>
+    </div>
+    <div class="center-align">
+      <input type="text" placeholder="Search" id="search">
+    </div>
+    <div class="right-align">
+      <a href="profile.html">
+        <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" id="prof-img">
+      </a>
+      <a class="nav-link button" href="/../index.html">Sign Out</a>
+    </div>
+  </div>
+
+  <div id="bottom">
+    <h1>Posts at UR</h1>
+    <table>
+      <tr>
+        <th>Book Name</th>
+        <th>Edition</th>
+        <th>Condition</th>
+        <th>Subject</th>
+        <th>Course</th>
+        <th>Price</th>
+        <th>Comments</th>
+      </tr>
+      <tr>
+        <td>Intro To Java</td>
+        <td>7th Edition</td>
+        <td>Good</td>
+        <td>Computer Science</td>
+        <td>CSC 171</td>
+        <td>$100</td>
+        <td>Some comment</td>
+      </tr>
+      <tr>
+        <td>Advanced Music Theory</td>
+        <td>3th Edition</td>
+        <td>Poor</td>
+        <td>Music</td>
+        <td>MUR 230</td>
+        <td>$56</td>
+        <td>Music!</td>
+      </tr>
+      <tr>
+        <td>Advanced Music Theory</td>
+        <td>3th Edition</td>
+        <td>Poor</td>
+        <td>Music</td>
+        <td>MUR 230</td>
+        <td>$56</td>
+        <td>Music!</td>
+      </tr>
+      <tr>
+        <td>Advanced Music Theory</td>
+        <td>3th Edition</td>
+        <td>Poor</td>
+        <td>Music</td>
+        <td>MUR 230</td>
+        <td>$56</td>
+        <td>Music!</td>
+      </tr>
+      <tr>
+        <td>Advanced Music Theory</td>
+        <td>3th Edition</td>
+        <td>Poor</td>
+        <td>Music</td>
+        <td>MUR 230</td>
+        <td>$56</td>
+        <td>Music!</td>
+      </tr>
+      <tr>
+        <td>Advanced Music Theory</td>
+        <td>3th Edition</td>
+        <td>Poor</td>
+        <td>Music</td>
+        <td>MUR 230</td>
+        <td>$56</td>
+        <td>Music!</td>
+      </tr>
+    </table>
+    <div id="add-post">
+      <div id="inputs">
+        <!-- Title: <input id="titleField" class="property-input" type="text" name="" value="">
+            Price: <input id="priceField" step="5" class="property-input" type="number" name="" value="">
+            Quantity: <input id="quantityField" class="property-input" type="number" name="" value="">
+            Edition: <input id="editionField" class="property-input" type="text" name="" value="">
+            Department: <input id="departmentField" class="property-input" type="text" name="" value="">
+            Class: <input id="classField" class="property-input" type="text" name="" value="">
+            ISBN: <input id="priceField" class="property-input" type="number" name="" value="">
+            Comments: <input id="priceField" class="property-input" type="text" name="" value="">
+            <button class="button" id="post-button">Submit</button -->
+        <div id="name" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
+          <input class="mdl-textfield__input" type="text" id="nameField" name="nameField">
+          <label class="mdl-textfield__label" for="nameField">Name of the book...</label>
         </div>
-      <div class="right-align">
-        <a href="/pages/profile.html">
-          <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" id="prof-img">
-        </a>
-        <a class="nav-link button" href="/../index.html">Sign Out</a>
-      </div>
-    </div>
 
-    <div id="bottom">
-      <h1>Posts at UR</h1>
-      <table>
-        <tr>
-          <th>Book Name</th>
-          <th>Edition</th>
-          <th>Condition</th>
-          <th>Subject</th>
-          <th>Course</th>
-          <th>Price</th>
-          <th>Comments</th>
-        </tr>
-        <tr>
-          <td>Intro To Java</td>
-          <td>7th Edition</td>
-          <td>Good</td>
-          <td>Computer Science</td>
-          <td>CSC 171</td>
-          <td>$100</td>
-          <td>Some comment</td>
-        </tr>
-        <tr>
-          <td>Advanced Music Theory</td>
-          <td>3th Edition</td>
-          <td>Poor</td>
-          <td>Music</td>
-          <td>MUR 230</td>
-          <td>$56</td>
-          <td>Music!</td>
-        </tr>
-        <tr>
-          <td>Advanced Music Theory</td>
-          <td>3th Edition</td>
-          <td>Poor</td>
-          <td>Music</td>
-          <td>MUR 230</td>
-          <td>$56</td>
-          <td>Music!</td>
-        </tr>
-        <tr>
-          <td>Advanced Music Theory</td>
-          <td>3th Edition</td>
-          <td>Poor</td>
-          <td>Music</td>
-          <td>MUR 230</td>
-          <td>$56</td>
-          <td>Music!</td>
-        </tr>
-        <tr>
-          <td>Advanced Music Theory</td>
-          <td>3th Edition</td>
-          <td>Poor</td>
-          <td>Music</td>
-          <td>MUR 230</td>
-          <td>$56</td>
-          <td>Music!</td>
-        </tr>
-        <tr>
-          <td>Advanced Music Theory</td>
-          <td>3th Edition</td>
-          <td>Poor</td>
-          <td>Music</td>
-          <td>MUR 230</td>
-          <td>$56</td>
-          <td>Music!</td>
-        </tr>
-      </table>
-      <div id="add-post">
-          <div id="inputs">
-            Title: <input class="property-input" type="text" name="" value="">
-            Price: <input step="5" class="property-input" type="number" name="" value="">
-            Quantity: <input class="property-input" type="number" name="" value="">
-            Edition: <input class="property-input" type="text" name="" value="">
-            Department: <input class="property-input" type="text" name="" value="">
-            Class: <input class="property-input" type="text" name="" value="">
-            ISBN: <input class="property-input" type="number" name="" value="">
-            Comments: <input class="property-input" type="text" name="" value="">
-            <button class="button" id="post-button">Submit</button>
-          </div>
+        <div id="edition" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
+          <input class="mdl-textfield__input" type="number" id="editionField" name="editionField">
+          <label class="mdl-textfield__label" for="editionField">Edition...</label>
+        </div>
+
+        <div id="condition" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
+          <input class="mdl-textfield__input" type="text" id="conditionField" name="conditionField">
+          <label class="mdl-textfield__label" for="conditionField">Condition of the book...</label>
+        </div>
+
+        <div id="subject" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
+          <input class="mdl-textfield__input" type="text" id="subjectField" name="subjectField">
+          <label class="mdl-textfield__label" for="subjectField">Subject...</label>
+        </div>
+
+        <div id="course" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
+          <input class="mdl-textfield__input" type="text" id="courseField" name="courseField">
+          <label class="mdl-textfield__label" for="courseField">Course...</label>
+        </div>
+
+        <div id="price" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
+          <input class="mdl-textfield__input" type="number" id="priceField" name="priceField">
+          <label class="mdl-textfield__label" for="priceField">Price...</label>
+        </div>
+
+        <div id="comment" class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
+          <textarea id="commentField" name="commentField" class="mdl-textfield__input" type="text" rows="5" maxrows="10"></textarea>
+          <label class="mdl-textfield__label" for="commentField">Comments...</label>
+        </div>
+        <button id="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-cell--12-col">Submit</button>
       </div>
     </div>
-    
-    <!-- Colored FAB button -->
-    <div id="add-button">+</div>
-  </body>
+  </div>
+
+  <!-- Colored FAB button -->
+  <div id="add-button">+</div>
+</body>
 
 </html>
