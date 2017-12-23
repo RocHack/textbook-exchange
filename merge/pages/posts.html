@@ -47,6 +47,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../mobile-styles.css">
 
   <!-- Scripts -->
   <!-- Firebase -->
@@ -65,7 +66,7 @@
       <div id="nav-title">UR Textbook Exchange</div>
     </div>
     <div class="center-align">
-      <input id="searchField" type="text" placeholder="Search">
+      <input id="search-field" type="text" placeholder="Search">
       <button class="nav-link button" id="searchButton">Search</button>
     </div>
     <div class="right-align">
@@ -74,6 +75,11 @@
       </a>
       <button class="nav-link button" id="signOut">Sign Out</button>
     </div>
+  </div>
+
+  <div class="mobile-search">
+    <input id="search-field" type="text" placeholder="Search">
+    <!-- <button class="nav-link button" id="searchButton">Search</button> -->
   </div>
 
   <div id="bottom">
@@ -105,10 +111,11 @@
     </table>
     <div id="add-post">
       <div id="inputs">
+        <h2>Add Post</h2>
         Book Name:
-        <input id="nameField" class="property-input" type="text" name="" value="">
+        <input id="nameField" class="property-input" type="text">
         Edition:
-        <select id="editionField" class="property-input" type="number" name="" value="">
+        <select id="editionField" class="property-input" type="number">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -120,16 +127,16 @@
           <option value="9">9</option>
         </select>
         <!-- ISBN:
-        <input id="isbnField" class="property-input" type="number" name="" value=""> -->
+        <input id="isbnField" class="property-input" type="number"> -->
         Condition:
-        <select id="conditionField" class="property-input" type="text" name="" value="">
+        <select id="conditionField" class="property-input" type="text">
           <option value="New">New</option>
           <option value="Good">Good</option>
           <option value="Medium">Medium</option>
           <option value="Bad">Bad</option>
         </select>
         Subject:
-        <select id="subjectField" class="property-input" type="text" name="" value="">
+        <select id="subjectField" class="property-input" type="text">
           <option value="CSC">CSC</option>
           <option value="MTH">MTH</option>
           <option value="ECE">ECE</option>
@@ -146,7 +153,10 @@
         <input id="priceField" step="5" class="property-input" type="number" name="" value="">
         Comments:
         <textarea id="commentField" rows="5" maxrows="10" class="property-input" type="text" name="" value=""></textarea>
+        <div>
         <button class="button" id="submitButton">Submit</button>
+        <button class="button" id="cancel">Cancel</button>
+      </div>
       </div>
     </div>
   </div>

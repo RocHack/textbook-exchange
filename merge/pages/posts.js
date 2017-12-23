@@ -41,6 +41,7 @@ const $searchTable = document.getElementById("searchTable");
 
 // Pop up input form:
 const $fab = document.getElementById("add-button");
+const $cancel = document.getElementById("cancel");
 const $modal = document.getElementById("add-post");
 
 //TODO: Login persistence
@@ -70,6 +71,10 @@ $fab.addEventListener('click', e => {
     } else {
         $modal.style.display = 'flex';
     }
+});
+
+$cancel.addEventListener('click', e => {
+    $modal.style.display = 'none';
 });
 
 //Submit
