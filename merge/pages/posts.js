@@ -35,7 +35,7 @@ const $submitButton = document.getElementById("submitButton");
 const $postsTable = document.getElementById("postsTable");
 
 // Search:
-const $searchField = document.getElementById("searchField");
+const $searchField = document.getElementById("search-field");
 const $searchButton = document.getElementById("searchButton");
 const $searchTable = document.getElementById("searchTable");
 
@@ -117,7 +117,7 @@ getOutput = function () {
             node = doc.data();
             let tab = document.createElement("tr");
             tab.innerHTML =
-            `<td>${node.Textbook}</td>
+                `<td>${node.Textbook}</td>
             <td>${node.Edition}</td>
             <td>${node.Condition}</td>
             <td>${node.Subject}</td>
@@ -148,7 +148,7 @@ $searchButton.addEventListener("click", function () {
                 node = doc.data();
                 let tab = document.createElement("tr");
                 tab.innerHTML =
-                `<td>${node.Textbook}</td>
+                    `<td>${node.Textbook}</td>
                 <td>${node.Edition}</td>
                 <td>${node.Condition}</td>
                 <td>${node.Subject}</td>
@@ -162,3 +162,88 @@ $searchButton.addEventListener("click", function () {
         }
     });
 })
+
+//const contactsRef = database.ref('/contacts');
+//const docRef = firestore.collection("books").doc();
+//contactsRef.on('child_added', addOrUpdateIndexRecord);
+//contactsRef.on('child_changed', addOrUpdateIndexRecord);
+//contactsRef.on('child_removed', deleteIndexRecord);
+
+function syncToAlgolia() {
+    firestore.collection("books").onSnapshot(function (snapshot) {
+        snapshot.docChanges.forEach(function (change) {
+            if (change.type === "added") {
+                addOrUpdateIndexRecord(change);
+                console.log("New book: ", change.doc.data());
+            }
+            if (change.type === "modified") {
+                addOrUpdateIndexRecord(change);
+                console.log("Modified book: ", change.doc.data());
+            }
+            if (change.type === "removed") {
+                deleteIndexRecord(change);
+                console.log("Removed book: ", change.doc.data());
+            }
+        });
+    });
+}
+
+syncToAlgolia();
+
+function addOrUpdateIndexRecord(book) {
+    // Get Firebase object
+    const record = book.doc.data();
+    // Specify Algolia's objectID using the Firebase object key
+    record.objectID = book.doc.key;
+    // Add or update object
+    index
+        .saveObject(record)
+        .then(() => {
+            console.log('Firebase object indexed in Algolia', record.objectID);
+        })
+        .catch(error => {
+            console.error('Error when indexing contact into Algolia', error);
+            //process.exit(1);
+        });
+}
+
+function deleteIndexRecord(book) {
+    // Get Algolia's objectID from the Firebase object key
+    const objectID = book.doc.key;
+    // Remove the object from Algolia
+    index
+        .deleteObject(objectID)
+        .then(() => {
+            console.log('Firebase object deleted from Algolia', objectID);
+        })
+        .catch(error => {
+            console.error('Error when deleting contact from Algolia', error);
+            //process.exit(1);
+        });
+}
+
+/*function putDataToAlgolia() {
+    firestore.collection("books").get().then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+            // Build an array of all records to push to Algolia
+            const records = [];
+            const childKey = doc.key;
+            const childData = doc.data();
+            childData.objectID = childKey;
+            records.push(childData);
+
+            // Add or update new objects
+            index
+                .saveObjects(records)
+                .then(() => {
+                    console.log('Contacts imported into Algolia');
+                })
+                .catch(error => {
+                    console.error('Error when importing contact into Algolia', error);
+                    process.exit(1);
+                });
+        });
+    });
+}
+
+putDataToAlgolia();*/
