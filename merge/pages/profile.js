@@ -50,7 +50,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 
 //Get users' own output
-getOwnOutput = function () {
+function getOwnOutput() {
     if (firebase.auth().currentUser) {
     }
     else {
