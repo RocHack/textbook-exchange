@@ -72,7 +72,12 @@
     </div>
     <div class="center-align">
       <input id="search-field" type="text" placeholder="Search">
-      <button class="nav-link button" id="searchButton">Search</button>
+      <button class="nav-link button" id="searchButton">
+          <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+        </svg>
+      </button>
     </div>
     <div class="right-align">
       <a href="profile.html">
@@ -89,8 +94,10 @@
 
   <div id="bottom">
     <div class="sample-post">
-      <img src="" alt="" class="poster-img">
-      <span class="poster-name">John Doe</span>
+      <div class="poster-info">
+        <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
+        <span class="poster-name">John Doe</span>
+      </div>
       <div class="post-section">
         <span class="txt-name">Fundementals of College</span>
         <span class="txt-edition">7th Edition</span>
@@ -106,24 +113,6 @@
         <span class="txt-class post-right">MUR 231</span>
       </div>
     </div>
-    <div class="sample-post">
-        <img src="" alt="" class="poster-img">
-        <span class="poster-name">John Doe</span>
-        <div class="post-section">
-          <span class="txt-name">Fundementals of College</span>
-          <span class="txt-edition">7th Edition</span>
-        </div>
-  
-        <div class="post-section--wide">
-          <span class="txt-price">$50</span>
-          <span class="txt-condition post-right">Good Condition</span>
-        </div>
-        
-        <div class="post-section--wide">
-          <span class="txt-subject">Education</span>
-          <span class="txt-class post-right">MUR 231</span>
-        </div>
-      </div>
 
     <h1>Posts at UR</h1>
     <table id="postsTable">

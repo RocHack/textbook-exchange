@@ -91,6 +91,18 @@ h3 {
   padding: 8px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   font-size: 1em;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  z-index: 5;
+}
+
+#searchButton {
+  padding: 8px;
+  margin: 0;
+  height: 38px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 textarea:focus, input:focus{
@@ -203,11 +215,11 @@ h1 {
   display: none;
 }
 
-
 .sample-post {
   display: flex;
   flex-direction: column;
   width: 45vw;
+  max-width: 620px;
   margin: 8px 0;
   border-radius: 2px;
   padding: 8px;
@@ -255,4 +267,21 @@ h1 {
 
 .txt-subject, .txt-class {
   flex-grow: 10;
+}
+
+.poster-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.poster-name, .poster-img {
+  margin-left: 8px;
+}
+
+.poster-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: #D56A56 2px solid;
 }
