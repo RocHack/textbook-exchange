@@ -45,6 +45,11 @@
   <meta name="msapplication-TileColor" content="#003B71">
   <meta name="msapplication-tap-highlight" content="no">
 
+  <!-- Will get rid of this later, temp -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
   <!-- Styles -->
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../mobile-styles.css">
@@ -83,6 +88,43 @@
   </div>
 
   <div id="bottom">
+    <div class="sample-post">
+      <img src="" alt="" class="poster-img">
+      <span class="poster-name">John Doe</span>
+      <div class="post-section">
+        <span class="txt-name">Fundementals of College</span>
+        <span class="txt-edition">7th Edition</span>
+      </div>
+
+      <div class="post-section--wide">
+        <span class="txt-price">$50</span>
+        <span class="txt-condition post-right">Good Condition</span>
+      </div>
+      
+      <div class="post-section--wide">
+        <span class="txt-subject">Education</span>
+        <span class="txt-class post-right">MUR 231</span>
+      </div>
+    </div>
+    <div class="sample-post">
+        <img src="" alt="" class="poster-img">
+        <span class="poster-name">John Doe</span>
+        <div class="post-section">
+          <span class="txt-name">Fundementals of College</span>
+          <span class="txt-edition">7th Edition</span>
+        </div>
+  
+        <div class="post-section--wide">
+          <span class="txt-price">$50</span>
+          <span class="txt-condition post-right">Good Condition</span>
+        </div>
+        
+        <div class="post-section--wide">
+          <span class="txt-subject">Education</span>
+          <span class="txt-class post-right">MUR 231</span>
+        </div>
+      </div>
+
     <h1>Posts at UR</h1>
     <table id="postsTable">
       <tr>
@@ -109,12 +151,13 @@
         <th>Comments</th>
       </tr>
     </table>
+    
     <div id="add-post">
       <div id="inputs">
-        <h2>Add Post</h2>
-        Book Name:
-        <input id="nameField" class="property-input" type="text">
-        Edition:
+        <h3>Post new Textbook</h3>
+        <span class="input-header">Book Name:</span>
+        <input id="nameField" class="mdl-textfield__input" type="text">
+        <span class="input-header">Edition:</span>
         <select id="editionField" class="property-input" type="number">
           <option value="1">1</option>
           <option value="2">2</option>
@@ -128,14 +171,14 @@
         </select>
         <!-- ISBN:
         <input id="isbnField" class="property-input" type="number"> -->
-        Condition:
+        <span class="input-header">Condition:</span>
         <select id="conditionField" class="property-input" type="text">
           <option value="New">New</option>
           <option value="Good">Good</option>
           <option value="Medium">Medium</option>
           <option value="Bad">Bad</option>
         </select>
-        Subject:
+        <span class="input-header">Subject:</span>
         <select id="subjectField" class="property-input" type="text">
           <option value="CSC">CSC</option>
           <option value="MTH">MTH</option>
@@ -147,22 +190,27 @@
           <option value="PHY">PHY</option>
           <option value="CHM">CHM</option>
         </select>
-        Course:
-        <input id="courseField" class="property-input" type="text" name="" value="">
-        Price:
-        <input id="priceField" step="5" class="property-input" type="number" name="" value="">
-        Comments:
-        <textarea id="commentField" rows="5" maxrows="10" class="property-input" type="text" name="" value=""></textarea>
+        <span class="input-header">Course:</span>
+        <input id="courseField" class="mdl-textfield__input" type="text">
+
+        <span class="input-header">Price:</span>
+        <input id="priceField" step="5" class="mdl-textfield__input" type="number">
+
+        <span class="input-header">Comments:</span>
+        <input id="commentField" class="mdl-textfield__input" type="text"></input>
         <div>
-        <button class="button" id="cancel">Cancel</button>
-        <button class="button" id="submitButton">Submit</button>
-      </div>
+          <button class="button" id="cancel">Cancel</button>
+          <button class="button" id="submitButton">Submit</button>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Colored FAB button -->
-  <div id="add-button">+</div>
+  <button id="add-button" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+    <i class="material-icons">add</i>
+  </button>
+
 </body>
 
 </html>
