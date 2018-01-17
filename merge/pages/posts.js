@@ -8,7 +8,7 @@ var config = {
     messagingSenderId: "83437624910"
 };
 firebase.initializeApp(config);
-var firestore = firebase.firestore(); //TODO: change firestore name to db
+var firestore = firebase.firestore();
 
 // Initialize algolia
 const ALGOLIA_ID = "8FJH3Q5YFR";
@@ -27,7 +27,7 @@ const $editionField = document.getElementById("editionField");
 const $conditionField = document.getElementById("conditionField");
 const $subjectField = document.getElementById("subjectField");
 const $courseField = document.getElementById("courseField");
-const $pricecField = document.getElementById("priceField");
+const $priceField = document.getElementById("priceField");
 const $commentField = document.getElementById("commentField");
 const $submitButton = document.getElementById("submitButton");
 
@@ -37,7 +37,6 @@ const $postsTable = document.getElementById("postsTable");
 // Search:
 const $searchField = document.getElementById("search-field");
 const $searchButton = document.getElementById("searchButton");
-const $searchTable = document.getElementById("searchTable");
 
 // Pop up input form:
 const $fab = document.getElementById("add-button");
@@ -53,6 +52,7 @@ $signOut.addEventListener("click", function () {
 })
 
 // Check auth state:
+// TODO: Detect auth state and change the sign-in button text
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // TODO: delete console.log()
@@ -79,7 +79,7 @@ $cancel.addEventListener('click', e => {
 
 //Submit
 $submitButton.addEventListener("click", function () {
-    if ($nameField.value && $pricecField.value) {
+    if ($nameField.value && $priceField.value) {
         if (firebase.auth().currentUser) {
             const docRef = firestore.collection("books").doc();
             let node = {
@@ -89,7 +89,7 @@ $submitButton.addEventListener("click", function () {
                 //ISBN: $isbnField.value,
                 Subject: $subjectField.value,
                 Course: $courseField.value,
-                Price: $pricecField.value,
+                Price: $priceField.value,
                 Comment: $commentField.value,
                 BookID: docRef.id,
                 OwnerID: firebase.auth().currentUser.uid,
@@ -111,7 +111,7 @@ $submitButton.addEventListener("click", function () {
 })
 
 //Get output
-getOutput = function () {
+function getOutput() {
     firestore.collection("books").get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
             node = doc.data();
@@ -134,6 +134,12 @@ getOutput();
 
 //Search
 $searchButton.addEventListener("click", function () {
+    //console.log($postsTable.getElementsByTagName("tr").length);
+    //$postsTable.deleteRow(0);
+    while ($postsTable.getElementsByTagName("tr").length > 1) {
+        //console.log("remove");
+        $postsTable.deleteRow(1);
+    }
     // Search query
     var query = $searchField.value;
     // Perform an Algolia search:
@@ -155,7 +161,7 @@ $searchButton.addEventListener("click", function () {
                 <td>${node.Course}</td>
                 <td>${node.Price}</td>
                 <td>${node.Comment}</td>`;
-                $searchTable.appendChild(tab);
+                $postsTable.appendChild(tab);
             }).catch(function (error) {
                 console.log("Error getting document:", error);
             });
@@ -169,7 +175,7 @@ $searchButton.addEventListener("click", function () {
 //contactsRef.on('child_changed', addOrUpdateIndexRecord);
 //contactsRef.on('child_removed', deleteIndexRecord);
 
-function syncToAlgolia() {
+/*function syncToAlgolia() {
     firestore.collection("books").onSnapshot(function (snapshot) {
         snapshot.docChanges.forEach(function (change) {
             if (change.type === "added") {
@@ -194,54 +200,45 @@ function addOrUpdateIndexRecord(book) {
     // Get Firebase object
     const record = book.doc.data();
     // Specify Algolia's objectID using the Firebase object key
-    record.objectID = book.doc.key;
+    record.objectID = book.doc.BookID;
     // Add or update object
-    index
-        .saveObject(record)
-        .then(() => {
-            console.log('Firebase object indexed in Algolia', record.objectID);
-        })
-        .catch(error => {
-            console.error('Error when indexing contact into Algolia', error);
-            //process.exit(1);
-        });
+    index.saveObject(record).then(() => {
+        console.log('Firebase object indexed in Algolia', record.objectID);
+    }).catch(error => {
+        console.error('Error when indexing contact into Algolia', error);
+        //process.exit(1);
+    });
 }
 
 function deleteIndexRecord(book) {
     // Get Algolia's objectID from the Firebase object key
-    const objectID = book.doc.key;
+    const objectID = book.doc.BookID;
     // Remove the object from Algolia
-    index
-        .deleteObject(objectID)
-        .then(() => {
-            console.log('Firebase object deleted from Algolia', objectID);
-        })
-        .catch(error => {
-            console.error('Error when deleting contact from Algolia', error);
-            //process.exit(1);
-        });
+    index.deleteObject(objectID).then(() => {
+        console.log('Firebase object deleted from Algolia', objectID);
+    }).catch(error => {
+        console.error('Error when deleting contact from Algolia', error);
+        //process.exit(1);
+    });
 }
 
-/*function putDataToAlgolia() {
+function putDataToAlgolia() {
     firestore.collection("books").get().then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-            // Build an array of all records to push to Algolia
-            const records = [];
-            const childKey = doc.key;
-            const childData = doc.data();
-            childData.objectID = childKey;
-            records.push(childData);
+        // Build an array of all records to push to Algolia
+        const records = [];
 
-            // Add or update new objects
-            index
-                .saveObjects(records)
-                .then(() => {
-                    console.log('Contacts imported into Algolia');
-                })
-                .catch(error => {
-                    console.error('Error when importing contact into Algolia', error);
-                    process.exit(1);
-                });
+        querySnapshot.forEach(function (doc) {
+            const book = doc.data();
+            book.objectID = book.BookID;
+            records.push(book);
+        });
+
+        // Add or update new objects
+        index.saveObjects(records).then(() => {
+            console.log('Contacts imported into Algolia');
+        }).catch(error => {
+            console.error('Error when importing contact into Algolia', error);
+            //process.exit(1);
         });
     });
 }

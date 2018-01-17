@@ -43,6 +43,7 @@ $signIn.addEventListener("click", function () {
 });
 
 // Check auth state:
+// TODO: Detect auth state and change the sign-in button text
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // TODO: delete console.log()
