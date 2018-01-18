@@ -88,46 +88,11 @@
   </div>
 
   <div class="mobile-search">
-    <input id="search-field" type="text" placeholder="Search">
+    <input id="search-field" type="text" placeholder="Search" oninput="testFunction">
     <!-- <button class="nav-link button" id="searchButton">Search</button> -->
   </div>
 
   <div id="bottom">
-    <div class="sample-post">
-      <div class="poster-info">
-        <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
-        <span class="poster-name">John Doe</span>
-      </div>
-      <div class="post-section">
-        <span class="txt-name">Fundementals of College</span>
-        <span class="txt-edition">7th Edition</span>
-      </div>
-
-      <div class="post-section--wide">
-        <span class="txt-price">$50</span>
-        <span class="txt-condition post-right">Good Condition</span>
-      </div>
-      
-      <div class="post-section--wide">
-        <span class="txt-subject">Education</span>
-        <span class="txt-class post-right">MUR 231</span>
-      </div>
-    </div>
-
-    <h1>Posts at UR</h1>
-    <table id="postsTable">
-      <tr>
-        <th>Book Name</th>
-        <th>Edition</th>
-        <!-- th>ISBN</th -->
-        <th>Condition</th>
-        <th>Subject</th>
-        <th>Course No.</th>
-        <th>Price</th>
-        <th>Comments</th>
-      </tr>
-    </table>
-    
     <div id="add-post">
       <div id="inputs">
         <h3>Post new Textbook</h3>
@@ -180,6 +145,39 @@
         </div>
       </div>
     </div>
+    <div class="sample-post">
+      <div class="poster-info">
+        <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
+        <span class="poster-name">John Doe</span>
+      </div>
+      <div class="post-section">
+        <span class="txt-name">Fundementals of College</span>
+        <span class="txt-edition">7th Edition</span>
+      </div>
+
+      <div class="post-section--wide">
+        <span class="txt-price">$50</span>
+        <span class="txt-condition post-right">Good Condition</span>
+      </div>
+      
+      <div class="post-section--wide">
+        <span class="txt-subject">Education</span>
+        <span class="txt-class post-right">MUR 231</span>
+      </div>
+    </div>
+
+    <!-- <h1>Posts at UR</h1>
+    <table id="postsTable">
+      <tr>
+        <th>Book Name</th>
+        <th>Edition</th>
+        <th>Condition</th>
+        <th>Subject</th>
+        <th>Course No.</th>
+        <th>Price</th>
+        <th>Comments</th>
+      </tr>
+    </table> -->
   </div>
 
   <!-- Colored FAB button -->

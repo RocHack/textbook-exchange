@@ -33,6 +33,7 @@ const $submitButton = document.getElementById("submitButton");
 
 // Output:
 const $postsTable = document.getElementById("postsTable");
+const $bottom = document.getElementById("bottom");
 
 // Search:
 const $searchField = document.getElementById("search-field");
@@ -111,21 +112,54 @@ $submitButton.addEventListener("click", function () {
 })
 
 //Get output
+
+// Old function, for table
+// function getOutput() {
+//     firestore.collection("books").get().then(function (querySnapshot) {
+//         querySnapshot.forEach(function (doc) {
+//             node = doc.data();
+//             let tab = document.createElement("tr");
+//             tab.innerHTML =
+//                 `<td>${node.Textbook}</td>
+//             <td>${node.Edition}</td>
+//             <td>${node.Condition}</td>
+//             <td>${node.Subject}</td>
+//             <td>${node.Course}</td>
+//             <td>${node.Price}</td>
+//             <td>${node.Comment}</td>`;
+//             $postsTable.appendChild(tab);
+//         });
+//     });
+// }
+
+// Updated function
 function getOutput() {
     firestore.collection("books").get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
             node = doc.data();
-            let tab = document.createElement("tr");
-            tab.innerHTML =
-                `<td>${node.Textbook}</td>
-            <td>${node.Edition}</td>
-            <td>${node.Condition}</td>
-            <td>${node.Subject}</td>
-            <td>${node.Course}</td>
-            <td>${node.Price}</td>
-            <td>${node.Comment}</td>`;
-            $postsTable.appendChild(tab);
-            //console.log(doc.id, " => ", doc.data());
+            let wrapper = document.createElement("div");
+            wrapper.className = 'sample-post';
+            wrapper.innerHTML =
+            `
+            <div class="poster-info">
+              <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
+              <span class="poster-name">John Doe</span>
+            </div>
+            <div class="post-section">
+              <span class="txt-name">${node.Textbook}</span>
+              <span class="txt-edition">${node.Edition} Edition</span>
+            </div>
+      
+            <div class="post-section--wide">
+              <span class="txt-price">$${node.Price}</span>
+              <span class="txt-condition post-right">${node.Condition} Condition</span>
+            </div>
+            
+            <div class="post-section--wide">
+              <span class="txt-subject">Subject goes here</span>
+              <span class="txt-class post-right">${node.Subject} ${node.Course}</span>
+            </div>`;
+            $bottom.appendChild(wrapper);
         });
     });
 }
@@ -133,7 +167,8 @@ function getOutput() {
 getOutput();
 
 //Search
-$searchButton.addEventListener("click", function () {
+// TODO: fix accuracy, function call on delete key pressed
+$searchField.addEventListener('keypress', function () {
     //console.log($postsTable.getElementsByTagName("tr").length);
     //$postsTable.deleteRow(0);
     while ($postsTable.getElementsByTagName("tr").length > 1) {
@@ -152,16 +187,29 @@ $searchButton.addEventListener("click", function () {
             var result = results[i].BookID;
             firestore.collection("books").doc(result).get().then(function (doc) {
                 node = doc.data();
-                let tab = document.createElement("tr");
-                tab.innerHTML =
-                    `<td>${node.Textbook}</td>
-                <td>${node.Edition}</td>
-                <td>${node.Condition}</td>
-                <td>${node.Subject}</td>
-                <td>${node.Course}</td>
-                <td>${node.Price}</td>
-                <td>${node.Comment}</td>`;
-                $postsTable.appendChild(tab);
+                let wrapper = document.createElement("div");
+            wrapper.className = 'sample-post';
+            wrapper.innerHTML =
+            `
+            <div class="poster-info">
+              <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
+              <span class="poster-name">John Doe</span>
+            </div>
+            <div class="post-section">
+              <span class="txt-name">${node.Textbook}</span>
+              <span class="txt-edition">${node.Edition} Edition</span>
+            </div>
+      
+            <div class="post-section--wide">
+              <span class="txt-price">$${node.Price}</span>
+              <span class="txt-condition post-right">${node.Condition} Condition</span>
+            </div>
+            
+            <div class="post-section--wide">
+              <span class="txt-subject">Subject goes here</span>
+              <span class="txt-class post-right">${node.Subject} ${node.Course}</span>
+            </div>`;
+            $bottom.appendChild(wrapper);
             }).catch(function (error) {
                 console.log("Error getting document:", error);
             });
