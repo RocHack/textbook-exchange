@@ -49,7 +49,7 @@ const $modal = document.getElementById("add-post");
 // Sign out:
 $signOut.addEventListener("click", function () {
     firebase.auth().signOut();
-    window.location.reload();
+    window.location.href = '../index.html';
 })
 
 // Check auth state:
