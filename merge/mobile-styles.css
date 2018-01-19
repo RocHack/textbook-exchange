@@ -187,13 +187,14 @@
   }
   
   #search-field {
-    height: 22px;
+    height: 26px;
     width: 100vh;
     border-radius: 0;
     padding: 8px;
-    box-shadow: 0 0 0 rgba(0,0,0,0.16), 0 0 0 rgba(0,0,0,0.23);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     font-size: 1em;
-    border-bottom: 1px solid black;
+    margin-bottom: 4px;
+    /* border-bottom: 1px solid grey; */
   }
   textarea:focus, input:focus {
     outline: none;
@@ -266,39 +267,11 @@
     height: 45px;
     border-radius: 50%;
   }
-  
+
   #add-post {
-    display: none;
-    position: fixed;
-    align-self: center;
-    background: grey;
-    width: 90vw;
-    border-radius: 3px;
-    margin: 16px;
-    padding: 16px;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    width: 97vw;
+    padding: 0;
   }
-  
-  #inputs {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    color: white;
-  }
-  
-  .property-input {
-    height: 18px;
-    width: 70%;
-    border: none;
-    border-radius: 3px;
-    padding: 8px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    font-size: .9em;
-    margin: 8px 0;
-  }
-  
   .center-align {
     display: none;
   }  
@@ -306,13 +279,10 @@
     display: flex;
   }
   .sample-post {
-    width: 100vw;
+    width: 97vw;
     padding: 8px 0 4px 0;
     font-size: 1.3em;
     background: white;
-    box-shadow: none;
-    border-radius: 0;
-    margin: 0;
-    border-bottom: grey 1px solid;
+    margin: 6px 0;
   }
 }

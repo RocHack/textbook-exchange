@@ -86,6 +86,7 @@ h3 {
 #search-field {
   height: 22px;
   width: 45vw;
+  max-width: 620px;
   border: none;
   border-radius: 3px;
   padding: 8px;
