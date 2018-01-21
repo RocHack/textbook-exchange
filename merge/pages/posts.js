@@ -142,22 +142,24 @@ function getOutput() {
             wrapper.innerHTML =
             `
             <div class="poster-info">
-              <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
-              <span class="poster-name">John Doe</span>
+                <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
+                <span class="poster-name">${node.Email}</span>
+            </div>
+            <div class="post-section--wide">
+                <span class="txt-name">${node.Textbook}e</span>
+                <span class="txt-price post-right">$${node.Price}</span>
             </div>
             <div class="post-section">
-              <span class="txt-name">${node.Textbook}</span>
-              <span class="txt-edition">${node.Edition} Edition</span>
+                <span class="txt-edition">${node.Edition}</span>
             </div>
-      
-            <div class="post-section--wide">
-              <span class="txt-price">$${node.Price}</span>
-              <span class="txt-condition post-right">${node.Condition} Condition</span>
+
+            <div class="post-section">
+                <span class="txt-class">${node.Subbject} ${node.Course}</span>
             </div>
             
             <div class="post-section--wide">
-              <span class="txt-subject">Subject goes here</span>
-              <span class="txt-class post-right">${node.Subject} ${node.Course}</span>
+                <span class="txt-condition">${node.Condition}</span>
+                <button class="post-right button">Buy</button>
             </div>`;
             $bottom.appendChild(wrapper);
         });

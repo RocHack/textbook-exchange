@@ -81,7 +81,11 @@
     </div>
     <div class="right-align">
       <a href="profile.html">
-        <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" id="prof-img">
+        <button class="nav-link button special-button">
+            <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" id="prof-img">
+            UR Posts
+        </button>
+        
       </a>
       <button class="nav-link button" id="signOut">Sign Out</button>
     </div>
@@ -96,7 +100,7 @@
     <div id="add-post">
       <div id="inputs">
         <h3 style="margin: 8px 0">Post new Textbook</h3>
-        <span class="input-header">Book Name:</span>
+        <span class="input-header">Book Name: *</span>
         <input id="nameField" class="mdl-textfield__input" type="text">
         <span class="input-header">Edition:</span>
         <select id="editionField" class="property-input" type="text">
@@ -110,17 +114,20 @@
           <option value="8">8th</option>
           <option value="9">9th</option>
           <option value="10">10th</option>
+          <option value="11">11th</option>
+          <option value="12">12th</option>
+          <option value="13">13th</option>
+          <option value="14">14th</option>
+          <option value="15">15th</option>
         </select>
-        <!-- ISBN:
-        <input id="isbnField" class="property-input" type="number"> -->
-        <span class="input-header">Condition:</span>
+        <span class="input-header">Condition: *</span>
         <select id="conditionField" class="property-input" type="text">
           <option value="New">New</option>
           <option value="Lightly Used">Lightly Used</option>
           <option value="Used">Used</option>
           <option value="Poor">Poor</option>
         </select>
-        <span class="input-header">Subject:</span>
+        <span class="input-header">Subject: *</span>
         <select id="subjectField" class="property-input" type="text">
           <option value="CSC">CSC</option>
           <option value="MTH">MTH</option>
@@ -132,14 +139,21 @@
           <option value="PHY">PHY</option>
           <option value="CHM">CHM</option>
         </select>
-        <span class="input-header">Course:</span>
-        <input id="courseField" class="mdl-textfield__input" type="text">
+        
+        <span class="input-header">Course: *</span>
+        <input id="courseField" class="mdl-textfield__input" type="text" placeholder="e.g. 101">
 
-        <span class="input-header">Price:</span>
-        <input id="priceField" step="5" class="mdl-textfield__input" type="number">
+        <span class="input-header">Price: *</span>
+        <input id="priceField" step="5" class="mdl-textfield__input" type="number" placeholder="e.g. 50">
+
+        <span class="input-header">ISBN:</span>
+        <input id="isbnField" class="mdl-textfield__input" type="text" pattern="^\d{9}[\d|X]$" placeholder="e.g. 111-1-11-111111-1">
+
+        <span class="input-header">Preferred Email: *</span>
+        <input id="emailField" class="mdl-textfield__input" type="text" placeholder="e.g. johndoe@provider.com">
 
         <span class="input-header">Comments:</span>
-        <input id="commentField" class="mdl-textfield__input" type="text"></input>
+        <input id="commentField" class="mdl-textfield__input" type="text" placeholder="e.g. Barely Used!"></input>
         <div id="button-section">
           <button class="button" id="cancel">Cancel</button>
           <button class="button" id="submitButton">Submit</button>
@@ -151,34 +165,23 @@
         <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
         <span class="poster-name">John Doe</span>
       </div>
-      <div class="post-section">
+      <div class="post-section--wide">
         <span class="txt-name">Fundementals of College</span>
         <span class="txt-price post-right">$50</span>
+      </div>
+      <div class="post-section">
         <span class="txt-edition">7th Edition</span>
-        
       </div>
 
-      <div class="post-section--wide">
-          <span class="txt-class">MUR 231</span>
+      <div class="post-section">
+        <span class="txt-class">MUR 231</span>
       </div>
       
       <div class="post-section--wide">
           <span class="txt-condition">Good Condition</span>
+          <button class="post-right button">Buy</button>
       </div>
     </div>
-
-    <!-- <h1>Posts at UR</h1>
-    <table id="postsTable">
-      <tr>
-        <th>Book Name</th>
-        <th>Edition</th>
-        <th>Condition</th>
-        <th>Subject</th>
-        <th>Course No.</th>
-        <th>Price</th>
-        <th>Comments</th>
-      </tr>
-    </table> -->
   </div>
 
   <!-- Colored FAB button -->

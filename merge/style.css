@@ -74,8 +74,12 @@ h3 {
   transition: all ease-in-out .2s;
   border: none;
   color: white;
-  /* max-width: 100px; */
   font-size: 1em;
+}
+
+.special-button {
+  padding: 4px 16px;
+  height: 41px;
 }
 
 .button:hover {
@@ -164,8 +168,8 @@ h1 {
 }
 
 #prof-img {
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
 
@@ -240,7 +244,11 @@ h1 {
 .post-section {
   display: flex;
   flex-direction: column;
-  margin: 8px 4px;
+  margin: 6px 4px;
+}
+
+.poster-info {
+  margin: 8px 0;
 }
 
 .post-section--wide {
@@ -255,7 +263,7 @@ h1 {
 }
 
 .txt-name, .txt-price {
-  font-size: 1.5em;
+  font-size: 1.7em;
 }
 
 .txt-edition {
