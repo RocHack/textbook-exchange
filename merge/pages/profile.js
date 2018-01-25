@@ -25,6 +25,7 @@ const $updateButton = document.getElementById('updateButton');
 
 //Output
 const $ownPostsTable = document.getElementById('ownPostsTable');
+const $bottom = document.getElementById("bottom");
 
 const $modal = document.getElementById('add-post');
 
@@ -59,36 +60,32 @@ function getOwnOutput() {
     firestore.collection("books").where("OwnerID", "==", firebase.auth().currentUser.uid).get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
             node = doc.data();
-            let tab = document.createElement("tr");
-            tab.innerHTML =
-                `<td>${node.Textbook}</td>
-            <td>${node.Edition}</td>
-            <td>${node.Condition}</td>
-            <td>${node.Subject}</td>
-            <td>${node.Course}</td>
-            <td>${node.Price}</td>
-            <td>${node.Comment}</td>`;
+            let wrapper = document.createElement("div");
+            wrapper.className = 'sample-post';
+            wrapper.innerHTML =
+                `
+            <div class="poster-info">
+                <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
+                <span class="poster-name">${node.Email}</span>
+            </div>
+            <div class="post-section--wide">
+                <span class="txt-name">${node.Textbook}</span>
+                <span class="txt-price post-right">$${node.Price}</span>
+            </div>
+            <div class="post-section">
+                <span class="txt-edition">${node.Edition}</span>
+            </div>
 
-            let td1 = document.createElement('td');
-            let td2 = document.createElement('td');
-
-            let editButton = document.createElement('div');
-            editButton.innerHTML = "Edit";
-            editButton.id = node.BookID;
-            editButton.className = "button mod-button edit";
-
-            let deleteButton = document.createElement('div');
-            deleteButton.innerHTML = "Delete";
-            deleteButton.id = node.BookID;
-            deleteButton.className = "button mod-button delete";
-
-            td1.appendChild(editButton);
-            td2.appendChild(deleteButton);
-
-            tab.appendChild(td1);
-            tab.appendChild(td2);
-
-            $ownPostsTable.appendChild(tab);
+            <div class="post-section">
+                <span class="txt-class">${node.Subbject} ${node.Course}</span>
+            </div>
+            
+            <div class="post-section--wide">
+                <span class="txt-condition">${node.Condition}</span>
+                <button class="post-right button edit" id=${node.BookID}>Edit</button>
+                <button class="post-right button delete" id=${node.BookID}>Delete</button>
+            </div>`;
+            $bottom.appendChild(wrapper);
         });
     });
 }
@@ -101,7 +98,6 @@ $updateButton.addEventListener("click", function () {
         return;
     }
     var docRef = firestore.collection("books").doc(editBookId);
-
     docRef.get().then(function (doc) {
         if (doc.exists && doc.data().OwnerID == firebase.auth().currentUser.uid) {
             if ($nameField.value && $pricecField.value) {
@@ -117,7 +113,7 @@ $updateButton.addEventListener("click", function () {
                 };
                 docRef.update(node).then(function () {
                     console.log("Document successfully updated!");
-                    $updateForm.style.display = "none";
+                    //$updateForm.style.display = "none";
                 }).catch(function (error) {
                     console.error("Error updating document: ", error);
                 });
@@ -131,7 +127,7 @@ $updateButton.addEventListener("click", function () {
     }).catch(function (error) {
         console.log("Error getting document:", error);
     });
-    $modal.style.display = "none";
+    //$modal.style.display = "none";
 })
 
 //Edit

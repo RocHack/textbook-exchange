@@ -23,7 +23,7 @@ const $signOut = document.getElementById("signOut");
 // Input:
 const $nameField = document.getElementById("nameField");
 const $editionField = document.getElementById("editionField");
-//const $isbnField = document.getElementById("isbnField");
+const $isbnField = document.getElementById("isbnField");
 const $conditionField = document.getElementById("conditionField");
 const $subjectField = document.getElementById("subjectField");
 const $courseField = document.getElementById("courseField");
@@ -87,7 +87,7 @@ $submitButton.addEventListener("click", function () {
                 Textbook: $nameField.value,
                 Edition: $editionField.value,
                 Condition: $conditionField.value,
-                //ISBN: $isbnField.value,
+                ISBN: $isbnField.value,
                 Subject: $subjectField.value,
                 Course: $courseField.value,
                 Price: $priceField.value,
@@ -108,31 +108,10 @@ $submitButton.addEventListener("click", function () {
     } else {
         console.log("Essential information missed!");
     }
-    $modal.style.display = 'none';
+    //$modal.style.display = 'none';
 })
 
 //Get output
-
-// Old function, for table
-// function getOutput() {
-//     firestore.collection("books").get().then(function (querySnapshot) {
-//         querySnapshot.forEach(function (doc) {
-//             node = doc.data();
-//             let tab = document.createElement("tr");
-//             tab.innerHTML =
-//                 `<td>${node.Textbook}</td>
-//             <td>${node.Edition}</td>
-//             <td>${node.Condition}</td>
-//             <td>${node.Subject}</td>
-//             <td>${node.Course}</td>
-//             <td>${node.Price}</td>
-//             <td>${node.Comment}</td>`;
-//             $postsTable.appendChild(tab);
-//         });
-//     });
-// }
-
-// Updated function
 function getOutput() {
     firestore.collection("books").get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
@@ -140,13 +119,13 @@ function getOutput() {
             let wrapper = document.createElement("div");
             wrapper.className = 'sample-post';
             wrapper.innerHTML =
-            `
+                `
             <div class="poster-info">
                 <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
                 <span class="poster-name">${node.Email}</span>
             </div>
             <div class="post-section--wide">
-                <span class="txt-name">${node.Textbook}e</span>
+                <span class="txt-name">${node.Textbook}</span>
                 <span class="txt-price post-right">$${node.Price}</span>
             </div>
             <div class="post-section">
@@ -171,11 +150,9 @@ getOutput();
 //Search
 // TODO: fix accuracy, function call on delete key pressed
 $searchField.addEventListener('keypress', function () {
-    //console.log($postsTable.getElementsByTagName("tr").length);
-    //$postsTable.deleteRow(0);
-    while ($postsTable.getElementsByTagName("tr").length > 1) {
-        //console.log("remove");
-        $postsTable.deleteRow(1);
+    var outputs = document.getElementsByClassName('sample-post');
+    while (outputs.length > 1) {
+        $bottom.removeChild(outputs[1]);
     }
     // Search query
     var query = $searchField.value;
@@ -190,9 +167,9 @@ $searchField.addEventListener('keypress', function () {
             firestore.collection("books").doc(result).get().then(function (doc) {
                 node = doc.data();
                 let wrapper = document.createElement("div");
-            wrapper.className = 'sample-post';
-            wrapper.innerHTML =
-            `
+                wrapper.className = 'sample-post';
+                wrapper.innerHTML =
+                    `
             <div class="poster-info">
               <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
               <span class="poster-name">John Doe</span>
@@ -211,86 +188,10 @@ $searchField.addEventListener('keypress', function () {
               <span class="txt-subject">Subject goes here</span>
               <span class="txt-class post-right">${node.Subject} ${node.Course}</span>
             </div>`;
-            $bottom.appendChild(wrapper);
+                $bottom.appendChild(wrapper);
             }).catch(function (error) {
                 console.log("Error getting document:", error);
             });
         }
     });
 })
-
-//const contactsRef = database.ref('/contacts');
-//const docRef = firestore.collection("books").doc();
-//contactsRef.on('child_added', addOrUpdateIndexRecord);
-//contactsRef.on('child_changed', addOrUpdateIndexRecord);
-//contactsRef.on('child_removed', deleteIndexRecord);
-
-/*function syncToAlgolia() {
-    firestore.collection("books").onSnapshot(function (snapshot) {
-        snapshot.docChanges.forEach(function (change) {
-            if (change.type === "added") {
-                addOrUpdateIndexRecord(change);
-                console.log("New book: ", change.doc.data());
-            }
-            if (change.type === "modified") {
-                addOrUpdateIndexRecord(change);
-                console.log("Modified book: ", change.doc.data());
-            }
-            if (change.type === "removed") {
-                deleteIndexRecord(change);
-                console.log("Removed book: ", change.doc.data());
-            }
-        });
-    });
-}
-
-syncToAlgolia();
-
-function addOrUpdateIndexRecord(book) {
-    // Get Firebase object
-    const record = book.doc.data();
-    // Specify Algolia's objectID using the Firebase object key
-    record.objectID = book.doc.BookID;
-    // Add or update object
-    index.saveObject(record).then(() => {
-        console.log('Firebase object indexed in Algolia', record.objectID);
-    }).catch(error => {
-        console.error('Error when indexing contact into Algolia', error);
-        //process.exit(1);
-    });
-}
-
-function deleteIndexRecord(book) {
-    // Get Algolia's objectID from the Firebase object key
-    const objectID = book.doc.BookID;
-    // Remove the object from Algolia
-    index.deleteObject(objectID).then(() => {
-        console.log('Firebase object deleted from Algolia', objectID);
-    }).catch(error => {
-        console.error('Error when deleting contact from Algolia', error);
-        //process.exit(1);
-    });
-}
-
-function putDataToAlgolia() {
-    firestore.collection("books").get().then(function (querySnapshot) {
-        // Build an array of all records to push to Algolia
-        const records = [];
-
-        querySnapshot.forEach(function (doc) {
-            const book = doc.data();
-            book.objectID = book.BookID;
-            records.push(book);
-        });
-
-        // Add or update new objects
-        index.saveObjects(records).then(() => {
-            console.log('Contacts imported into Algolia');
-        }).catch(error => {
-            console.error('Error when importing contact into Algolia', error);
-            //process.exit(1);
-        });
-    });
-}
-
-putDataToAlgolia();*/

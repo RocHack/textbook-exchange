@@ -80,30 +80,36 @@
     
     <div id="add-post">
       <div id="inputs">
-        Book Name:
-        <input id="nameField" class="property-input" type="text" name="" value=""> Edition:
-        <select id="editionField" class="property-input" type="number" name="" value="">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
+        <h3 style="margin: 8px 0">Post new Textbook</h3>
+        <span class="input-header">Book Name: *</span>
+        <input id="nameField" class="mdl-textfield__input" type="text">
+        <span class="input-header">Edition:</span>
+        <select id="editionField" class="property-input" type="text">
+          <option value="1">1st</option>
+          <option value="2">2nd</option>
+          <option value="3">3rd</option>
+          <option value="4">4th</option>
+          <option value="5">5th</option>
+          <option value="6">6th</option>
+          <option value="7">7th</option>
+          <option value="8">8th</option>
+          <option value="9">9th</option>
+          <option value="10">10th</option>
+          <option value="11">11th</option>
+          <option value="12">12th</option>
+          <option value="13">13th</option>
+          <option value="14">14th</option>
+          <option value="15">15th</option>
         </select>
-        <!-- ISBN:
-          <input id="isbnField" class="property-input" type="number" name="" value=""> -->
-        Condition:
-        <select id="conditionField" class="property-input" type="text" name="" value="">
+        <span class="input-header">Condition: *</span>
+        <select id="conditionField" class="property-input" type="text">
           <option value="New">New</option>
-          <option value="Good">Good</option>
-          <option value="Medium">Medium</option>
-          <option value="Bad">Bad</option>
+          <option value="Lightly Used">Lightly Used</option>
+          <option value="Used">Used</option>
+          <option value="Poor">Poor</option>
         </select>
-        Subject:
-        <select id="subjectField" class="property-input" type="text" name="" value="">
+        <span class="input-header">Subject: *</span>
+        <select id="subjectField" class="property-input" type="text">
           <option value="CSC">CSC</option>
           <option value="MTH">MTH</option>
           <option value="ECE">ECE</option>
@@ -114,11 +120,25 @@
           <option value="PHY">PHY</option>
           <option value="CHM">CHM</option>
         </select>
-        Course:
-        <input id="courseField" class="property-input" type="text" name="" value=""> Price:
-        <input id="priceField" step="5" class="property-input" type="number" name="" value=""> Comments:
-        <textarea id="commentField" rows="5" maxrows="10" class="property-input" type="text" name="" value=""></textarea>
-        <button class="button" id="updateButton">Update</button>
+        
+        <span class="input-header">Course: *</span>
+        <input id="courseField" class="mdl-textfield__input" type="text" placeholder="e.g. 101">
+
+        <span class="input-header">Price: *</span>
+        <input id="priceField" step="5" class="mdl-textfield__input" type="number" placeholder="e.g. 50">
+
+        <span class="input-header">ISBN:</span>
+        <input id="isbnField" class="mdl-textfield__input" type="text" pattern="^\d{9}[\d|X]$" placeholder="e.g. 111-1-11-111111-1">
+
+        <span class="input-header">Preferred Email: *</span>
+        <input id="emailField" class="mdl-textfield__input" type="text" placeholder="e.g. johndoe@provider.com">
+
+        <span class="input-header">Comments:</span>
+        <input id="commentField" class="mdl-textfield__input" type="text" placeholder="e.g. Barely Used!"></input>
+        <div id="button-section">
+          <button class="button" id="cancel">Cancel</button>
+          <button class="button" id="updateButton">Update</button>
+        </div>
       </div>
     </div>
   </div>
