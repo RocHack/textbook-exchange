@@ -129,16 +129,16 @@ function getOutput() {
                 <span class="txt-price post-right">$${node.Price}</span>
             </div>
             <div class="post-section">
-                <span class="txt-edition">${node.Edition}</span>
+                <span class="txt-edition">${node.Edition} Edition</span>
             </div>
 
             <div class="post-section">
-                <span class="txt-class">${node.Subbject} ${node.Course}</span>
+                <span class="txt-class">${node.Subject} ${node.Course}</span>
             </div>
             
             <div class="post-section--wide">
                 <span class="txt-condition">${node.Condition}</span>
-                <button class="post-right button">Buy</button>
+                <a href="mailto:${node.Email}"><button class="post-right button">Buy</button></a>
             </div>`;
             $bottom.appendChild(wrapper);
         });
@@ -169,25 +169,27 @@ $searchField.addEventListener('keypress', function () {
                 let wrapper = document.createElement("div");
                 wrapper.className = 'sample-post';
                 wrapper.innerHTML =
-                    `
-            <div class="poster-info">
-              <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
-              <span class="poster-name">John Doe</span>
-            </div>
-            <div class="post-section">
-              <span class="txt-name">${node.Textbook}</span>
-              <span class="txt-edition">${node.Edition} Edition</span>
-            </div>
-      
-            <div class="post-section--wide">
-              <span class="txt-price">$${node.Price}</span>
-              <span class="txt-condition post-right">${node.Condition} Condition</span>
-            </div>
-            
-            <div class="post-section--wide">
-              <span class="txt-subject">Subject goes here</span>
-              <span class="txt-class post-right">${node.Subject} ${node.Course}</span>
-            </div>`;
+                `
+                <div class="poster-info">
+                    <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="" class="poster-img">
+                    <span class="poster-name">${node.Email}</span>
+                </div>
+                <div class="post-section--wide">
+                    <span class="txt-name">${node.Textbook}</span>
+                    <span class="txt-price post-right">$${node.Price}</span>
+                </div>
+                <div class="post-section">
+                    <span class="txt-edition">${node.Edition} Edition</span>
+                </div>
+    
+                <div class="post-section">
+                    <span class="txt-class">${node.Subject} ${node.Course}</span>
+                </div>
+                
+                <div class="post-section--wide">
+                    <span class="txt-condition">${node.Condition}</span>
+                    <button class="post-right button">Buy</button>
+                </div>`;
                 $bottom.appendChild(wrapper);
             }).catch(function (error) {
                 console.log("Error getting document:", error);
