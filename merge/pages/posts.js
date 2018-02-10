@@ -32,12 +32,13 @@ const $commentField = document.getElementById("commentField");
 const $submitButton = document.getElementById("submitButton");
 
 // Output:
-const $postsTable = document.getElementById("postsTable");
+//const $postsTable = document.getElementById("postsTable");
 const $bottom = document.getElementById("bottom");
 
 // Search:
 const $searchField = document.getElementById("search-field");
 const $searchButton = document.getElementById("searchButton");
+const $mSearchField = document.getElementById("mSearchField");
 
 // Pop up input form:
 const $fab = document.getElementById("add-button");
@@ -149,13 +150,36 @@ getOutput();
 
 //Search
 // TODO: fix accuracy, function call on delete key pressed
-$searchField.addEventListener('keypress', function () {
+$searchField.addEventListener('keydown', deskTopSearch);
+
+$mSearchField.addEventListener('keydown', mobileSearch);
+
+function deskTopSearch() {
+    var value = $searchField.value;
+    search(value);
+}
+
+function mobileSearch() {
+    var value = $mSearchField.value;
+    search(value);
+}
+
+function search(value) {
     var outputs = document.getElementsByClassName('sample-post');
-    while (outputs.length > 1) {
-        $bottom.removeChild(outputs[1]);
+    while (outputs.length > 0) {
+        $bottom.removeChild(outputs[0]);
     }
+
     // Search query
-    var query = $searchField.value;
+    //var query;
+    //if (version == "desktop") {
+    //    query = ;
+    //}
+    //else {
+    //    
+    //}
+    //var query = ;
+    var query = value;
     // Perform an Algolia search:
     // https://www.algolia.com/doc/api-reference/api-methods/search/
     index.search({ query }).then(responses => {
@@ -196,4 +220,4 @@ $searchField.addEventListener('keypress', function () {
             });
         }
     });
-})
+}
