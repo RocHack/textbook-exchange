@@ -317,3 +317,22 @@ h1 {
   border-radius: 50%;
   border: #D56A56 2px solid;
 }
+
+/* ABOUT PAGE */
+#about-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  color: black;
+  padding: 16px 32px;
+}
+
+#about-title {
+ font-size: 3em;
+ margin: 8px 0;
+}
+
+#about-text {
+  font-size: 1.5em;
+  width: 40vw;
+}
